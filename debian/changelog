@@ -1,0 +1,43 @@
+zram-config (0.3.1-1) vivid; urgency=medium
+
+  * Modified init script 
+
+ -- Hugh Greenberg <hugh@galliumos.org>  Wed, 1 Sep 2015 10:13:05 +0200
+
+zram-config (0.3.1) vivid; urgency=medium
+
+  * Backport 2 fixes from wily:
+    - Call "free" command under C locale to avoid it failing under non-English
+    locales. Thanks GamePad64 for the initial patch! (LP: #1448530)
+    - rmmod doesn't support -w anymore, ensure that the module is removed and
+    that the service stops properly (LP: #1449678)
+
+ -- Didier Roche <didrocks@ubuntu.com>  Mon, 15 Jun 2015 10:13:05 +0200
+
+zram-config (0.3) vivid; urgency=medium
+
+  * Reshape the upstart script in independent script to be callable by
+    systemd units
+  * Call those script from the upstart service
+  * Add systemd unit
+  * Bump Standards-Version
+
+ -- Didier Roche <didrocks@ubuntu.com>  Thu, 08 Jan 2015 10:54:10 +0100
+
+zram-config (0.2) utopic; urgency=medium
+
+  * Do not start/restart zram-config on installation/upgrade.
+
+ -- Dimitri John Ledkov <xnox@ubuntu.com>  Wed, 14 May 2014 18:23:37 +0100
+
+zram-config (0.1build1) utopic; urgency=high
+
+  * No change rebuild against upstart-job dependency removal.
+
+ -- Dimitri John Ledkov <xnox@ubuntu.com>  Fri, 09 May 2014 14:09:30 +0100
+
+zram-config (0.1) precise; urgency=low
+
+  * Initial Release of zram swap configuration management.
+
+ -- Adam Conrad <adconrad@ubuntu.com>  Mon, 09 Jan 2012 04:01:46 -0700
