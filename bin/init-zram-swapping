@@ -1,7 +1,8 @@
 #!/bin/sh
 
 # load dependency modules
-NRDEVICES=$(grep -c ^processor /proc/cpuinfo | sed 's/^0$/1/')
+#NRDEVICES=$(grep -c ^processor /proc/cpuinfo | sed 's/^0$/1/')
+NRDEVICES=1
 if modinfo zram | grep -q ' zram_num_devices:' 2>/dev/null; then
   MODPROBE_ARGS="zram_num_devices=${NRDEVICES}"
 elif modinfo zram | grep -q ' num_devices:' 2>/dev/null; then
@@ -11,12 +12,13 @@ else
 fi
 modprobe zram $MODPROBE_ARGS
 
-# Calculate memory to use for zram (1.7 X the amount of total ram)
-totalmem=`LC_ALL=C free | grep -e "^Mem:" | sed -e 's/^Mem: *//' -e 's/  *.*//'`
-mem=`echo "$totalmem * 1.7 * 1024" | bc`
+# Calculate memory to use for zram (1/2 of ram)
+totalmem=`free | grep -e "^Mem:" | sed -e 's/^Mem: *//' -e 's/  *.*//'`
+mem=`echo "$totalmem * 1.50 * 1024" | bc`
 
 # initialize the devices
 DEVNUMBER=0
 echo $mem > /sys/block/zram${DEVNUMBER}/disksize
+echo lz4 > /sys/block/zram${DEVNUMBER}/comp_algorithm
 mkswap /dev/zram${DEVNUMBER}
 swapon -p -1 /dev/zram${DEVNUMBER}
