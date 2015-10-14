@@ -1,3 +1,9 @@
+zram-config (0.3.1-2) vivid; urgency=medium
+
+  * Modified init script to reduce memory usage, use the lz4 algo, and use only one cpu
+
+ -- Hugh Greenberg <hugh@galliumos.org>  Tue, 15 Sep 2015 10:13:05 +0200
+
 zram-config (0.3.1-1) vivid; urgency=medium
 
   * Modified init script 

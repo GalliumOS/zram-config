@@ -20,5 +20,6 @@ mem=`echo "$totalmem * 1.50 * 1024" | bc`
 DEVNUMBER=0
 echo $mem > /sys/block/zram${DEVNUMBER}/disksize
 echo lz4 > /sys/block/zram${DEVNUMBER}/comp_algorithm
+echo 2 > /sys/block/zram${DEVNUMBER}/max_comp_streams
 mkswap /dev/zram${DEVNUMBER}
 swapon -p -1 /dev/zram${DEVNUMBER}
