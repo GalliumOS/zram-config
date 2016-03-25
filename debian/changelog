@@ -1,36 +1,22 @@
-zram-config (0.3.1-0galliumos3) vivid; urgency=medium
+zram-config (0.5-galliumos1) wily; urgency=medium
 
-  * Set package version to match provenance
+  * GalliumOS mod to use only one device,lz4 compression, and to use 1.5 * the total memory
 
- -- reynhout <reynhout@galliumos.org>  Sun, 10 Jan 2016 21:05:33 +0000
+ -- Hugh Greenberg <hugh@galliumos.org>  Fri, 25 Mar 2015 09:59:40 +0200
 
-zram-config (0.3.2-1) vivid; urgency=medium
+zram-config (0.5) wily; urgency=medium
 
-  * Fixed script to correct the ordering of the changes
-
- -- Hugh Greenberg <hugh@galliumos.org>  Sun, 18 Oct 2015 10:13:05 +0200
-
-zram-config (0.3.1-2) vivid; urgency=medium
-
-  * Modified init script to reduce memory usage, use the lz4 algo, and use only one cpu
-
- -- Hugh Greenberg <hugh@galliumos.org>  Tue, 15 Sep 2015 10:13:05 +0200
-
-zram-config (0.3.1-1) vivid; urgency=medium
-
-  * Modified init script 
-
- -- Hugh Greenberg <hugh@galliumos.org>  Wed, 1 Sep 2015 10:13:05 +0200
-
-zram-config (0.3.1) vivid; urgency=medium
-
-  * Backport 2 fixes from wily:
-    - Call "free" command under C locale to avoid it failing under non-English
-    locales. Thanks GamePad64 for the initial patch! (LP: #1448530)
-    - rmmod doesn't support -w anymore, ensure that the module is removed and
+  * rmmod doesn't support -w anymore, ensure that the module is removed and
     that the service stops properly (LP: #1449678)
 
- -- Didier Roche <didrocks@ubuntu.com>  Mon, 15 Jun 2015 10:13:05 +0200
+ -- Didier Roche <didrocks@ubuntu.com>  Mon, 15 Jun 2015 09:59:40 +0200
+
+zram-config (0.4) wily; urgency=medium
+
+  * Call "free" command under C locale to avoid it failing under non-English
+    locales. Thanks GamePad64 for the initial patch! (LP: #1448530)
+
+ -- Martin Pitt <martin.pitt@ubuntu.com>  Fri, 29 May 2015 13:04:37 +0200
 
 zram-config (0.3) vivid; urgency=medium
 
