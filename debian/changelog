@@ -1,3 +1,9 @@
+zram-config (0.5-galliumos2) bismuth; urgency=medium
+
+  * Prepare for GalliumOS 3.0
+
+ -- reynhout <reynhout@galliumos.org>  Tue, 08 May 2018 05:51:08 +0000
+
 zram-config (0.5-galliumos1) wily; urgency=medium
 
   * GalliumOS mod to use only one device,lz4 compression, and to use 1.5 * the total memory
